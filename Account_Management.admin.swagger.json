@@ -6,7 +6,7 @@
         "version": "2.0"
     }, 
     "host": "biologeek.orange-labs.fr", 
-    "basePath": "/tmf-api/accountManagement/v2/", 
+    "basePath": "/tmf-api/accountManagement/v1/", 
     "schemes": [
         "https"
     ], 
@@ -183,12 +183,6 @@
                         "type": "string", 
                         "name": "defaultPaymentMethod.name", 
                         "description": "For filtering on the base of 'name' field (equality)"
-                    }, 
-                    {
-                        "in": "query", 
-                        "type": "string", 
-                        "name": "relatedParty.@referredType", 
-                        "description": "For filtering on the base of '@referredType' field (equality)"
                     }, 
                     {
                         "in": "query", 
@@ -621,12 +615,6 @@
                     {
                         "in": "query", 
                         "type": "string", 
-                        "name": "relatedParty.@referredType", 
-                        "description": "For filtering on the base of '@referredType' field (equality)"
-                    }, 
-                    {
-                        "in": "query", 
-                        "type": "string", 
                         "name": "relatedParty.name", 
                         "description": "For filtering on the base of 'name' field (equality)"
                     }, 
@@ -1055,12 +1043,6 @@
                     {
                         "in": "query", 
                         "type": "string", 
-                        "name": "relatedParty.@referredType", 
-                        "description": "For filtering on the base of '@referredType' field (equality)"
-                    }, 
-                    {
-                        "in": "query", 
-                        "type": "string", 
                         "name": "relatedParty.name", 
                         "description": "For filtering on the base of 'name' field (equality)"
                     }, 
@@ -1413,12 +1395,6 @@
                         "type": "string", 
                         "name": "type", 
                         "description": "For filtering on the base of 'type' field (equality)"
-                    }, 
-                    {
-                        "in": "query", 
-                        "type": "string", 
-                        "name": "relatedParty.@referredType", 
-                        "description": "For filtering on the base of '@referredType' field (equality)"
                     }, 
                     {
                         "in": "query", 
@@ -2579,6 +2555,9 @@
         "FinancialAccount": {
             "type": "object", 
             "description": "An account of money owed by a party to another entity in exchange for goods or services that have been delivered or used. A financial (account receivable account/account payable) aggregates the amounts of one or more party accounts (billing or settlement) owned by a given party.", 
+            "required": [
+                "name"
+            ], 
             "properties": {
                 "creditLimit": {
                     "$ref": "#/definitions/Money", 
@@ -2654,6 +2633,10 @@
                 "@baseType": {
                     "type": "string", 
                     "description": "The base type for use in polymorphic collections"
+                }, 
+                "@referredType": {
+                    "type": "string", 
+                    "description": "The actual type of the target instance when needed for disambiguation."
                 }
             }
         }, 
@@ -2730,6 +2713,10 @@
                 "@baseType": {
                     "type": "string", 
                     "description": "The base type for use in polymorphic collections"
+                }, 
+                "@referredType": {
+                    "type": "string", 
+                    "description": "The actual type of the target instance when needed for disambiguation."
                 }
             }
         }, 
@@ -2798,16 +2785,23 @@
                 "@baseType": {
                     "type": "string", 
                     "description": "The base type for use in polymorphic collections"
+                }, 
+                "@referredType": {
+                    "type": "string", 
+                    "description": "The actual type of the target instance when needed for disambiguation."
                 }
             }
         }, 
         "PaymentMethod": {
             "type": "object", 
             "description": "Defines a specific method of payment (e.g. direct debit with all details associated)", 
+            "required": [
+                "name"
+            ], 
             "properties": {
                 "@type": {
                     "type": "string", 
-                    "description": "The class type of the actual resource (for type extension)."
+                    "description": "Type of payment method (e.g.: bank card, cash, voucher...). The details field type depends on the value assigned to this one"
                 }, 
                 "description": {
                     "type": "string", 
@@ -2914,14 +2908,6 @@
                 "@type": {
                     "type": "string", 
                     "description": "The class type of the actual resource (for type extension)."
-                }, 
-                "@schemaLocation": {
-                    "type": "string", 
-                    "description": "A link to the schema describing a resource (for type extension)."
-                }, 
-                "@baseType": {
-                    "type": "string", 
-                    "description": "The base type for use in polymorphic collections"
                 }
             }
         }, 
@@ -3047,6 +3033,9 @@
         "BillFormat": {
             "type": "object", 
             "description": "A detailed description of the way in which a bill is presented.", 
+            "required": [
+                "name"
+            ], 
             "properties": {
                 "description": {
                     "type": "string", 
@@ -3136,6 +3125,9 @@
         "BillPresentationMedia": {
             "type": "object", 
             "description": "A mean of communicating a bill, supported by the associated bill format. For example, post mail, email, web page.", 
+            "required": [
+                "name"
+            ], 
             "properties": {
                 "description": {
                     "type": "string", 
@@ -3225,6 +3217,9 @@
         "PartyAccount": {
             "type": "object", 
             "description": "Account used for billing or for settlement purposes concerning a given party (an organization or an individual).", 
+            "required": [
+                "name"
+            ], 
             "properties": {
                 "creditLimit": {
                     "$ref": "#/definitions/Money", 
@@ -3319,6 +3314,10 @@
                 "@baseType": {
                     "type": "string", 
                     "description": "The base type for use in polymorphic collections"
+                }, 
+                "@referredType": {
+                    "type": "string", 
+                    "description": "The actual type of the target instance when needed for disambiguation."
                 }
             }
         }, 
@@ -3326,7 +3325,8 @@
             "type": "object", 
             "description": "Account used for billing or for settlement purposes concerning a given party (an organization or an individual).\nSkipped properties: id,href", 
             "required": [
-                "name"
+                "name", 
+                "relatedParty"
             ], 
             "properties": {
                 "creditLimit": {
@@ -3414,6 +3414,10 @@
                 "@baseType": {
                     "type": "string", 
                     "description": "The base type for use in polymorphic collections"
+                }, 
+                "@referredType": {
+                    "type": "string", 
+                    "description": "The actual type of the target instance when needed for disambiguation."
                 }
             }
         }, 
@@ -3500,12 +3504,20 @@
                 "@baseType": {
                     "type": "string", 
                     "description": "The base type for use in polymorphic collections"
+                }, 
+                "@referredType": {
+                    "type": "string", 
+                    "description": "The actual type of the target instance when needed for disambiguation."
                 }
             }
         }, 
         "BillingAccount": {
             "type": "object", 
             "description": "A party account used for billing purposes. It includes a description of the bill structure (frequency, presentation media, format and so on).", 
+            "required": [
+                "name", 
+                "relatedParty"
+            ], 
             "properties": {
                 "paymentStatus": {
                     "type": "string", 
@@ -3600,6 +3612,10 @@
                 "@baseType": {
                     "type": "string", 
                     "description": "The base type for use in polymorphic collections"
+                }, 
+                "@referredType": {
+                    "type": "string", 
+                    "description": "The actual type of the target instance when needed for disambiguation."
                 }
             }
         }, 
@@ -3607,7 +3623,8 @@
             "type": "object", 
             "description": "A party account used for billing purposes. It includes a description of the bill structure (frequency, presentation media, format and so on).\nSkipped properties: id,href", 
             "required": [
-                "name"
+                "name", 
+                "relatedParty"
             ], 
             "properties": {
                 "paymentStatus": {
@@ -3695,6 +3712,10 @@
                 "@baseType": {
                     "type": "string", 
                     "description": "The base type for use in polymorphic collections"
+                }, 
+                "@referredType": {
+                    "type": "string", 
+                    "description": "The actual type of the target instance when needed for disambiguation."
                 }
             }
         }, 
@@ -3781,12 +3802,20 @@
                 "@baseType": {
                     "type": "string", 
                     "description": "The base type for use in polymorphic collections"
+                }, 
+                "@referredType": {
+                    "type": "string", 
+                    "description": "The actual type of the target instance when needed for disambiguation."
                 }
             }
         }, 
         "SettlementAccount": {
             "type": "object", 
             "description": "A party account used for settlement purposes. It includes a description of the structure used for the settlement (frequency, presentation media, format and so on).", 
+            "required": [
+                "name", 
+                "relatedParty"
+            ], 
             "properties": {
                 "paymentStatus": {
                     "type": "string", 
@@ -3881,6 +3910,10 @@
                 "@baseType": {
                     "type": "string", 
                     "description": "The base type for use in polymorphic collections"
+                }, 
+                "@referredType": {
+                    "type": "string", 
+                    "description": "The actual type of the target instance when needed for disambiguation."
                 }
             }
         }, 
@@ -3888,7 +3921,8 @@
             "type": "object", 
             "description": "A party account used for settlement purposes. It includes a description of the structure used for the settlement (frequency, presentation media, format and so on).\nSkipped properties: id,href", 
             "required": [
-                "name"
+                "name", 
+                "relatedParty"
             ], 
             "properties": {
                 "paymentStatus": {
@@ -3976,6 +4010,10 @@
                 "@baseType": {
                     "type": "string", 
                     "description": "The base type for use in polymorphic collections"
+                }, 
+                "@referredType": {
+                    "type": "string", 
+                    "description": "The actual type of the target instance when needed for disambiguation."
                 }
             }
         }, 
@@ -4062,6 +4100,10 @@
                 "@baseType": {
                     "type": "string", 
                     "description": "The base type for use in polymorphic collections"
+                }, 
+                "@referredType": {
+                    "type": "string", 
+                    "description": "The actual type of the target instance when needed for disambiguation."
                 }
             }
         }, 
@@ -4082,19 +4124,23 @@
         }, 
         "RelatedPartyRef": {
             "type": "object", 
-            "description": "relatedParty (RelatedPartyRef). The party which the recommendation is related with.", 
+            "description": "RelatedParty reference. A related party defines party or party role linked to a specific entity.", 
+            "required": [
+                "id", 
+                "name"
+            ], 
             "properties": {
                 "href": {
                     "type": "string", 
-                    "description": "Hypertext Reference of the related party."
+                    "description": "Reference of the related party, could be a party reference or a party role reference"
                 }, 
                 "id": {
                     "type": "string", 
-                    "description": "Unique identifier of related party"
+                    "description": "Unique identifier of a related party"
                 }, 
                 "name": {
                     "type": "string", 
-                    "description": "Name of the related party."
+                    "description": "Name of the related party"
                 }, 
                 "role": {
                     "type": "string", 
@@ -4109,6 +4155,10 @@
         "AccountTaxExemption": {
             "type": "object", 
             "description": "Proof of freedom from taxes imposed by a taxing jurisdiction", 
+            "required": [
+                "issuingJurisdiction", 
+                "validFor"
+            ], 
             "properties": {
                 "certificateNumber": {
                     "type": "string", 
@@ -4129,20 +4179,16 @@
                 "@type": {
                     "type": "string", 
                     "description": "The class type of the actual resource (for type extension)."
-                }, 
-                "@schemaLocation": {
-                    "type": "string", 
-                    "description": "A link to the schema describing a resource (for type extension)."
-                }, 
-                "@baseType": {
-                    "type": "string", 
-                    "description": "The base type for use in polymorphic collections"
                 }
             }
         }, 
         "Contact": {
             "type": "object", 
             "description": "An individual or an organization used as a contact point for a given account and accessed via some contact medium.", 
+            "required": [
+                "contactType", 
+                "validFor"
+            ], 
             "properties": {
                 "contactName": {
                     "type": "string", 
@@ -4172,20 +4218,17 @@
                 "@type": {
                     "type": "string", 
                     "description": "The class type of the actual resource (for type extension)."
-                }, 
-                "@schemaLocation": {
-                    "type": "string", 
-                    "description": "A link to the schema describing a resource (for type extension)."
-                }, 
-                "@baseType": {
-                    "type": "string", 
-                    "description": "The base type for use in polymorphic collections"
                 }
             }
         }, 
         "AccountBalance": {
             "type": "object", 
             "description": "Balances linked to the account", 
+            "required": [
+                "type", 
+                "amount", 
+                "validFor"
+            ], 
             "properties": {
                 "amount": {
                     "$ref": "#/definitions/Money", 
@@ -4202,20 +4245,16 @@
                 "@type": {
                     "type": "string", 
                     "description": "The class type of the actual resource (for type extension)."
-                }, 
-                "@schemaLocation": {
-                    "type": "string", 
-                    "description": "A link to the schema describing a resource (for type extension)."
-                }, 
-                "@baseType": {
-                    "type": "string", 
-                    "description": "The base type for use in polymorphic collections"
                 }
             }
         }, 
         "AccountRelationship": {
             "type": "object", 
             "description": "Significant connection between accounts. For instance an aggregating account for a list of shop branches each having its own billing account.", 
+            "required": [
+                "relationshipType", 
+                "validFor"
+            ], 
             "properties": {
                 "relationshipType": {
                     "type": "string", 
@@ -4231,14 +4270,6 @@
                 "@type": {
                     "type": "string", 
                     "description": "The class type of the actual resource (for type extension)."
-                }, 
-                "@schemaLocation": {
-                    "type": "string", 
-                    "description": "A link to the schema describing a resource (for type extension)."
-                }, 
-                "@baseType": {
-                    "type": "string", 
-                    "description": "The base type for use in polymorphic collections"
                 }
             }
         }, 
@@ -4280,14 +4311,6 @@
                 "@type": {
                     "type": "string", 
                     "description": "The class type of the actual resource (for type extension)."
-                }, 
-                "@schemaLocation": {
-                    "type": "string", 
-                    "description": "A link to the schema describing a resource (for type extension)."
-                }, 
-                "@baseType": {
-                    "type": "string", 
-                    "description": "The base type for use in polymorphic collections"
                 }
             }
         }, 
@@ -4295,14 +4318,6 @@
             "type": "object", 
             "description": "Describes the contact medium characteristics that could be used to contact a party (an individual or an organization)", 
             "properties": {
-                "@schemaLocation": {
-                    "type": "string", 
-                    "description": "A link to the schema describing a resource (for type extension)."
-                }, 
-                "@type": {
-                    "type": "string", 
-                    "description": "The class type of the actual resource (for type extension)."
-                }, 
                 "city": {
                     "type": "string", 
                     "description": "The city"
@@ -4343,9 +4358,13 @@
                     "type": "string", 
                     "description": "Type of medium (fax, mobile phone...)"
                 }, 
-                "@baseType": {
+                "@type": {
                     "type": "string", 
-                    "description": "The base type for use in polymorphic collections"
+                    "description": "The class type of the actual resource (for type extension)."
+                }, 
+                "@schemaLocation": {
+                    "type": "string", 
+                    "description": "A link to the schema describing a resource (for type extension)."
                 }
             }
         }, 
@@ -4394,14 +4413,6 @@
                 "@type": {
                     "type": "string", 
                     "description": "The class type of the actual resource (for type extension)."
-                }, 
-                "@schemaLocation": {
-                    "type": "string", 
-                    "description": "A link to the schema describing a resource (for type extension)."
-                }, 
-                "@baseType": {
-                    "type": "string", 
-                    "description": "The base type for use in polymorphic collections"
                 }
             }
         }, 
@@ -4443,14 +4454,6 @@
                 "@type": {
                     "type": "string", 
                     "description": "The class type of the actual resource (for type extension)."
-                }, 
-                "@schemaLocation": {
-                    "type": "string", 
-                    "description": "A link to the schema describing a resource (for type extension)."
-                }, 
-                "@baseType": {
-                    "type": "string", 
-                    "description": "The base type for use in polymorphic collections"
                 }
             }
         }, 
