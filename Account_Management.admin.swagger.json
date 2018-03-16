@@ -6,7 +6,7 @@
         "version": "2.0"
     }, 
     "host": "biologeek.orange-labs.fr", 
-    "basePath": "/tmf-api/accountManagement/v1/", 
+    "basePath": "/tmf-api/accountManagement/v2/", 
     "schemes": [
         "https"
     ], 
