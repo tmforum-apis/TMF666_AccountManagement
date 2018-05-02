@@ -427,7 +427,7 @@
                     }
                 ], 
                 "responses": {
-                    "201": {
+                    "200": {
                         "description": "Updated", 
                         "schema": {
                             "$ref": "#/definitions/PartyAccount"
@@ -927,7 +927,7 @@
                     }
                 ], 
                 "responses": {
-                    "201": {
+                    "200": {
                         "description": "Updated", 
                         "schema": {
                             "$ref": "#/definitions/BillingAccount"
@@ -1427,7 +1427,7 @@
                     }
                 ], 
                 "responses": {
-                    "201": {
+                    "200": {
                         "description": "Updated", 
                         "schema": {
                             "$ref": "#/definitions/SettlementAccount"
@@ -1855,7 +1855,7 @@
                     }
                 ], 
                 "responses": {
-                    "201": {
+                    "200": {
                         "description": "Updated", 
                         "schema": {
                             "$ref": "#/definitions/FinancialAccount"
@@ -2271,7 +2271,7 @@
                     }
                 ], 
                 "responses": {
-                    "201": {
+                    "200": {
                         "description": "Updated", 
                         "schema": {
                             "$ref": "#/definitions/BillingCycleSpecification"
@@ -2579,7 +2579,7 @@
                     }
                 ], 
                 "responses": {
-                    "201": {
+                    "200": {
                         "description": "Updated", 
                         "schema": {
                             "$ref": "#/definitions/BillFormat"
@@ -2887,7 +2887,7 @@
                     }
                 ], 
                 "responses": {
-                    "201": {
+                    "200": {
                         "description": "Updated", 
                         "schema": {
                             "$ref": "#/definitions/BillPresentationMedia"
