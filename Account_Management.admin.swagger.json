@@ -2691,6 +2691,18 @@
                 "name"
             ], 
             "properties": {
+                "@baseType": {
+                    "type": "string", 
+                    "description": "Generic attribute indicating the base class type of the extension class of the current object. Useful only when the class type of the current  object is unknown to the implementation."
+                }, 
+                "@schemaLocation": {
+                    "type": "string", 
+                    "description": "Generic attribute containing the link to the schema that defines the structure of the class type of the current object."
+                }, 
+                "@type": {
+                    "type": "string", 
+                    "description": "Generic attribute containing the name of the resource class type"
+                }, 
                 "creditLimit": {
                     "$ref": "#/definitions/Money", 
                     "description": "The maximum amount of money that may be charged on an account"
@@ -2754,18 +2766,6 @@
                         "$ref": "#/definitions/AccountRelationship"
                     }
                 }, 
-                "@type": {
-                    "type": "string", 
-                    "description": "The class type of the actual resource (for type extension)."
-                }, 
-                "@schemaLocation": {
-                    "type": "string", 
-                    "description": "A link to the schema describing a resource (for type extension)."
-                }, 
-                "@baseType": {
-                    "type": "string", 
-                    "description": "The base type for use in polymorphic collections"
-                }, 
                 "@referredType": {
                     "type": "string", 
                     "description": "The actual type of the target instance when needed for disambiguation."
@@ -2779,6 +2779,18 @@
                 "name"
             ], 
             "properties": {
+                "@baseType": {
+                    "type": "string", 
+                    "description": "Generic attribute indicating the base class type of the extension class of the current object. Useful only when the class type of the current  object is unknown to the implementation."
+                }, 
+                "@schemaLocation": {
+                    "type": "string", 
+                    "description": "Generic attribute containing the link to the schema that defines the structure of the class type of the current object."
+                }, 
+                "@type": {
+                    "type": "string", 
+                    "description": "Generic attribute containing the name of the resource class type"
+                }, 
                 "creditLimit": {
                     "$ref": "#/definitions/Money", 
                     "description": "The maximum amount of money that may be charged on an account"
@@ -2834,18 +2846,6 @@
                         "$ref": "#/definitions/AccountRelationship"
                     }
                 }, 
-                "@type": {
-                    "type": "string", 
-                    "description": "The class type of the actual resource (for type extension)."
-                }, 
-                "@schemaLocation": {
-                    "type": "string", 
-                    "description": "A link to the schema describing a resource (for type extension)."
-                }, 
-                "@baseType": {
-                    "type": "string", 
-                    "description": "The base type for use in polymorphic collections"
-                }, 
                 "@referredType": {
                     "type": "string", 
                     "description": "The actual type of the target instance when needed for disambiguation."
@@ -2856,6 +2856,18 @@
             "type": "object", 
             "description": "An account of money owed by a party to another entity in exchange for goods or services that have been delivered or used. A financial (account receivable account/account payable) aggregates the amounts of one or more party accounts (billing or settlement) owned by a given party.\nSkipped properties: id,href,id,href,lastModified", 
             "properties": {
+                "@baseType": {
+                    "type": "string", 
+                    "description": "Generic attribute indicating the base class type of the extension class of the current object. Useful only when the class type of the current  object is unknown to the implementation."
+                }, 
+                "@schemaLocation": {
+                    "type": "string", 
+                    "description": "Generic attribute containing the link to the schema that defines the structure of the class type of the current object."
+                }, 
+                "@type": {
+                    "type": "string", 
+                    "description": "Generic attribute containing the name of the resource class type"
+                }, 
                 "creditLimit": {
                     "$ref": "#/definitions/Money", 
                     "description": "The maximum amount of money that may be charged on an account"
@@ -2906,89 +2918,31 @@
                         "$ref": "#/definitions/AccountRelationship"
                     }
                 }, 
-                "@type": {
-                    "type": "string", 
-                    "description": "The class type of the actual resource (for type extension)."
-                }, 
-                "@schemaLocation": {
-                    "type": "string", 
-                    "description": "A link to the schema describing a resource (for type extension)."
-                }, 
-                "@baseType": {
-                    "type": "string", 
-                    "description": "The base type for use in polymorphic collections"
-                }, 
                 "@referredType": {
                     "type": "string", 
                     "description": "The actual type of the target instance when needed for disambiguation."
                 }
             }
         }, 
-        "PaymentMethod": {
+        "BillingCycleSpecification": {
             "type": "object", 
-            "description": "Defines a specific method of payment (e.g. direct debit with all details associated)", 
+            "description": "A detailed description of when to initiate a billing cycle and the various sub steps of a billing cycle.", 
             "required": [
                 "name"
             ], 
             "properties": {
-                "@type": {
+                "@baseType": {
                     "type": "string", 
-                    "description": "Type of payment method (e.g.: bank card, cash, voucher...). The details field type depends on the value assigned to this one"
-                }, 
-                "description": {
-                    "type": "string", 
-                    "description": "Text describing the contents of the payment method"
-                }, 
-                "href": {
-                    "type": "string", 
-                    "description": "A resource URI pointing to the resource in the server that stores the detailed information. This is typically the resource url to retrieve individual details for the specific payment method"
-                }, 
-                "id": {
-                    "type": "string", 
-                    "description": "Unique Identifier within the server for the payment method."
-                }, 
-                "name": {
-                    "type": "string", 
-                    "description": "Friendly name assigned to the payment method"
-                }, 
-                "preferred": {
-                    "type": "boolean", 
-                    "description": "If the method is the preferred one by the owner. Typically used when querying for the payment methods of a specific customer or account"
-                }, 
-                "status": {
-                    "type": "string"
-                }, 
-                "statusDate": {
-                    "type": "string", 
-                    "format": "date-time"
-                }, 
-                "validFor": {
-                    "$ref": "#/definitions/TimePeriod", 
-                    "description": "Date interval in which the payment method is valid"
-                }, 
-                "relatedParty": {
-                    "$ref": "#/definitions/RelatedPartyRef"
-                }, 
-                "account": {
-                    "type": "array", 
-                    "items": {
-                        "$ref": "#/definitions/AccountRef"
-                    }
+                    "description": "Generic attribute indicating the base class type of the extension class of the current object. Useful only when the class type of the current  object is unknown to the implementation."
                 }, 
                 "@schemaLocation": {
                     "type": "string", 
-                    "description": "A link to the schema describing a resource (for type extension)."
+                    "description": "Generic attribute containing the link to the schema that defines the structure of the class type of the current object."
                 }, 
-                "@baseType": {
+                "@type": {
                     "type": "string", 
-                    "description": "The base type for use in polymorphic collections"
-                }
-            }
-        }, 
-        "BillingCycleSpecification": {
-            "type": "object", 
-            "description": "A detailed description of when to initiate a billing cycle and the various sub steps of a billing cycle.", 
-            "properties": {
+                    "description": "Generic attribute containing the name of the resource class type"
+                }, 
                 "billingDateShift": {
                     "type": "integer", 
                     "description": "An offset of a billing/settlement date. The offset is expressed as number of days with regard to the start of the billing/settlement period."
@@ -3036,10 +2990,6 @@
                 "validFor": {
                     "$ref": "#/definitions/TimePeriod", 
                     "description": "The period for which the billing specification cycle is valid"
-                }, 
-                "@type": {
-                    "type": "string", 
-                    "description": "The class type of the actual resource (for type extension)."
                 }
             }
         }, 
@@ -3050,6 +3000,18 @@
                 "name"
             ], 
             "properties": {
+                "@baseType": {
+                    "type": "string", 
+                    "description": "Generic attribute indicating the base class type of the extension class of the current object. Useful only when the class type of the current  object is unknown to the implementation."
+                }, 
+                "@schemaLocation": {
+                    "type": "string", 
+                    "description": "Generic attribute containing the link to the schema that defines the structure of the class type of the current object."
+                }, 
+                "@type": {
+                    "type": "string", 
+                    "description": "Generic attribute containing the name of the resource class type"
+                }, 
                 "billingDateShift": {
                     "type": "integer", 
                     "description": "An offset of a billing/settlement date. The offset is expressed as number of days with regard to the start of the billing/settlement period."
@@ -3089,18 +3051,6 @@
                 "validFor": {
                     "$ref": "#/definitions/TimePeriod", 
                     "description": "The period for which the billing specification cycle is valid"
-                }, 
-                "@type": {
-                    "type": "string", 
-                    "description": "The class type of the actual resource (for type extension)."
-                }, 
-                "@schemaLocation": {
-                    "type": "string", 
-                    "description": "A link to the schema describing a resource (for type extension)."
-                }, 
-                "@baseType": {
-                    "type": "string", 
-                    "description": "The base type for use in polymorphic collections"
                 }
             }
         }, 
@@ -3108,6 +3058,18 @@
             "type": "object", 
             "description": "A detailed description of when to initiate a billing cycle and the various sub steps of a billing cycle.\nSkipped properties: id,href,id,href", 
             "properties": {
+                "@baseType": {
+                    "type": "string", 
+                    "description": "Generic attribute indicating the base class type of the extension class of the current object. Useful only when the class type of the current  object is unknown to the implementation."
+                }, 
+                "@schemaLocation": {
+                    "type": "string", 
+                    "description": "Generic attribute containing the link to the schema that defines the structure of the class type of the current object."
+                }, 
+                "@type": {
+                    "type": "string", 
+                    "description": "Generic attribute containing the name of the resource class type"
+                }, 
                 "billingDateShift": {
                     "type": "integer", 
                     "description": "An offset of a billing/settlement date. The offset is expressed as number of days with regard to the start of the billing/settlement period."
@@ -3147,18 +3109,6 @@
                 "validFor": {
                     "$ref": "#/definitions/TimePeriod", 
                     "description": "The period for which the billing specification cycle is valid"
-                }, 
-                "@type": {
-                    "type": "string", 
-                    "description": "The class type of the actual resource (for type extension)."
-                }, 
-                "@schemaLocation": {
-                    "type": "string", 
-                    "description": "A link to the schema describing a resource (for type extension)."
-                }, 
-                "@baseType": {
-                    "type": "string", 
-                    "description": "The base type for use in polymorphic collections"
                 }
             }
         }, 
@@ -3169,6 +3119,18 @@
                 "name"
             ], 
             "properties": {
+                "@baseType": {
+                    "type": "string", 
+                    "description": "Generic attribute indicating the base class type of the extension class of the current object. Useful only when the class type of the current  object is unknown to the implementation."
+                }, 
+                "@schemaLocation": {
+                    "type": "string", 
+                    "description": "Generic attribute containing the link to the schema that defines the structure of the class type of the current object."
+                }, 
+                "@type": {
+                    "type": "string", 
+                    "description": "Generic attribute containing the name of the resource class type"
+                }, 
                 "description": {
                     "type": "string", 
                     "description": "An explanatory text for this bill format"
@@ -3184,18 +3146,6 @@
                 "name": {
                     "type": "string", 
                     "description": "A short descriptive name"
-                }, 
-                "@type": {
-                    "type": "string", 
-                    "description": "The class type of the actual resource (for type extension)."
-                }, 
-                "@schemaLocation": {
-                    "type": "string", 
-                    "description": "A link to the schema describing a resource (for type extension)."
-                }, 
-                "@baseType": {
-                    "type": "string", 
-                    "description": "The base type for use in polymorphic collections"
                 }
             }
         }, 
@@ -3206,6 +3156,18 @@
                 "name"
             ], 
             "properties": {
+                "@baseType": {
+                    "type": "string", 
+                    "description": "Generic attribute indicating the base class type of the extension class of the current object. Useful only when the class type of the current  object is unknown to the implementation."
+                }, 
+                "@schemaLocation": {
+                    "type": "string", 
+                    "description": "Generic attribute containing the link to the schema that defines the structure of the class type of the current object."
+                }, 
+                "@type": {
+                    "type": "string", 
+                    "description": "Generic attribute containing the name of the resource class type"
+                }, 
                 "description": {
                     "type": "string", 
                     "description": "An explanatory text for this bill format"
@@ -3213,18 +3175,6 @@
                 "name": {
                     "type": "string", 
                     "description": "A short descriptive name"
-                }, 
-                "@type": {
-                    "type": "string", 
-                    "description": "The class type of the actual resource (for type extension)."
-                }, 
-                "@schemaLocation": {
-                    "type": "string", 
-                    "description": "A link to the schema describing a resource (for type extension)."
-                }, 
-                "@baseType": {
-                    "type": "string", 
-                    "description": "The base type for use in polymorphic collections"
                 }
             }
         }, 
@@ -3232,6 +3182,18 @@
             "type": "object", 
             "description": "A detailed description of the way in which a bill is presented.\nSkipped properties: id,href,id,href", 
             "properties": {
+                "@baseType": {
+                    "type": "string", 
+                    "description": "Generic attribute indicating the base class type of the extension class of the current object. Useful only when the class type of the current  object is unknown to the implementation."
+                }, 
+                "@schemaLocation": {
+                    "type": "string", 
+                    "description": "Generic attribute containing the link to the schema that defines the structure of the class type of the current object."
+                }, 
+                "@type": {
+                    "type": "string", 
+                    "description": "Generic attribute containing the name of the resource class type"
+                }, 
                 "description": {
                     "type": "string", 
                     "description": "An explanatory text for this bill format"
@@ -3239,18 +3201,6 @@
                 "name": {
                     "type": "string", 
                     "description": "A short descriptive name"
-                }, 
-                "@type": {
-                    "type": "string", 
-                    "description": "The class type of the actual resource (for type extension)."
-                }, 
-                "@schemaLocation": {
-                    "type": "string", 
-                    "description": "A link to the schema describing a resource (for type extension)."
-                }, 
-                "@baseType": {
-                    "type": "string", 
-                    "description": "The base type for use in polymorphic collections"
                 }
             }
         }, 
@@ -3261,6 +3211,18 @@
                 "name"
             ], 
             "properties": {
+                "@baseType": {
+                    "type": "string", 
+                    "description": "Generic attribute indicating the base class type of the extension class of the current object. Useful only when the class type of the current  object is unknown to the implementation."
+                }, 
+                "@schemaLocation": {
+                    "type": "string", 
+                    "description": "Generic attribute containing the link to the schema that defines the structure of the class type of the current object."
+                }, 
+                "@type": {
+                    "type": "string", 
+                    "description": "Generic attribute containing the name of the resource class type"
+                }, 
                 "description": {
                     "type": "string", 
                     "description": "An explanatory text describing this bill presentation media"
@@ -3276,18 +3238,6 @@
                 "name": {
                     "type": "string", 
                     "description": "A short descriptive name"
-                }, 
-                "@type": {
-                    "type": "string", 
-                    "description": "The class type of the actual resource (for type extension)."
-                }, 
-                "@schemaLocation": {
-                    "type": "string", 
-                    "description": "A link to the schema describing a resource (for type extension)."
-                }, 
-                "@baseType": {
-                    "type": "string", 
-                    "description": "The base type for use in polymorphic collections"
                 }
             }
         }, 
@@ -3298,6 +3248,18 @@
                 "name"
             ], 
             "properties": {
+                "@baseType": {
+                    "type": "string", 
+                    "description": "Generic attribute indicating the base class type of the extension class of the current object. Useful only when the class type of the current  object is unknown to the implementation."
+                }, 
+                "@schemaLocation": {
+                    "type": "string", 
+                    "description": "Generic attribute containing the link to the schema that defines the structure of the class type of the current object."
+                }, 
+                "@type": {
+                    "type": "string", 
+                    "description": "Generic attribute containing the name of the resource class type"
+                }, 
                 "description": {
                     "type": "string", 
                     "description": "An explanatory text describing this bill presentation media"
@@ -3305,18 +3267,6 @@
                 "name": {
                     "type": "string", 
                     "description": "A short descriptive name"
-                }, 
-                "@type": {
-                    "type": "string", 
-                    "description": "The class type of the actual resource (for type extension)."
-                }, 
-                "@schemaLocation": {
-                    "type": "string", 
-                    "description": "A link to the schema describing a resource (for type extension)."
-                }, 
-                "@baseType": {
-                    "type": "string", 
-                    "description": "The base type for use in polymorphic collections"
                 }
             }
         }, 
@@ -3324,6 +3274,18 @@
             "type": "object", 
             "description": "A mean of communicating a bill, supported by the associated bill format. For example, post mail, email, web page.\nSkipped properties: id,href,id,href", 
             "properties": {
+                "@baseType": {
+                    "type": "string", 
+                    "description": "Generic attribute indicating the base class type of the extension class of the current object. Useful only when the class type of the current  object is unknown to the implementation."
+                }, 
+                "@schemaLocation": {
+                    "type": "string", 
+                    "description": "Generic attribute containing the link to the schema that defines the structure of the class type of the current object."
+                }, 
+                "@type": {
+                    "type": "string", 
+                    "description": "Generic attribute containing the name of the resource class type"
+                }, 
                 "description": {
                     "type": "string", 
                     "description": "An explanatory text describing this bill presentation media"
@@ -3331,18 +3293,6 @@
                 "name": {
                     "type": "string", 
                     "description": "A short descriptive name"
-                }, 
-                "@type": {
-                    "type": "string", 
-                    "description": "The class type of the actual resource (for type extension)."
-                }, 
-                "@schemaLocation": {
-                    "type": "string", 
-                    "description": "A link to the schema describing a resource (for type extension)."
-                }, 
-                "@baseType": {
-                    "type": "string", 
-                    "description": "The base type for use in polymorphic collections"
                 }
             }
         }, 
@@ -3353,6 +3303,18 @@
                 "name"
             ], 
             "properties": {
+                "@baseType": {
+                    "type": "string", 
+                    "description": "Generic attribute indicating the base class type of the extension class of the current object. Useful only when the class type of the current  object is unknown to the implementation."
+                }, 
+                "@schemaLocation": {
+                    "type": "string", 
+                    "description": "Generic attribute containing the link to the schema that defines the structure of the class type of the current object."
+                }, 
+                "@type": {
+                    "type": "string", 
+                    "description": "Generic attribute containing the name of the resource class type"
+                }, 
                 "creditLimit": {
                     "$ref": "#/definitions/Money", 
                     "description": "The maximum amount of money that may be charged on an account"
@@ -3435,18 +3397,6 @@
                         "$ref": "#/definitions/AccountRelationship"
                     }
                 }, 
-                "@type": {
-                    "type": "string", 
-                    "description": "The class type of the actual resource (for type extension)."
-                }, 
-                "@schemaLocation": {
-                    "type": "string", 
-                    "description": "A link to the schema describing a resource (for type extension)."
-                }, 
-                "@baseType": {
-                    "type": "string", 
-                    "description": "The base type for use in polymorphic collections"
-                }, 
                 "@referredType": {
                     "type": "string", 
                     "description": "The actual type of the target instance when needed for disambiguation."
@@ -3461,6 +3411,18 @@
                 "relatedParty"
             ], 
             "properties": {
+                "@baseType": {
+                    "type": "string", 
+                    "description": "Generic attribute indicating the base class type of the extension class of the current object. Useful only when the class type of the current  object is unknown to the implementation."
+                }, 
+                "@schemaLocation": {
+                    "type": "string", 
+                    "description": "Generic attribute containing the link to the schema that defines the structure of the class type of the current object."
+                }, 
+                "@type": {
+                    "type": "string", 
+                    "description": "Generic attribute containing the name of the resource class type"
+                }, 
                 "creditLimit": {
                     "$ref": "#/definitions/Money", 
                     "description": "The maximum amount of money that may be charged on an account"
@@ -3535,18 +3497,6 @@
                         "$ref": "#/definitions/AccountRelationship"
                     }
                 }, 
-                "@type": {
-                    "type": "string", 
-                    "description": "The class type of the actual resource (for type extension)."
-                }, 
-                "@schemaLocation": {
-                    "type": "string", 
-                    "description": "A link to the schema describing a resource (for type extension)."
-                }, 
-                "@baseType": {
-                    "type": "string", 
-                    "description": "The base type for use in polymorphic collections"
-                }, 
                 "@referredType": {
                     "type": "string", 
                     "description": "The actual type of the target instance when needed for disambiguation."
@@ -3557,6 +3507,18 @@
             "type": "object", 
             "description": "Account used for billing or for settlement purposes concerning a given party (an organization or an individual).\nSkipped properties: id,href,id,href,accountBalance", 
             "properties": {
+                "@baseType": {
+                    "type": "string", 
+                    "description": "Generic attribute indicating the base class type of the extension class of the current object. Useful only when the class type of the current  object is unknown to the implementation."
+                }, 
+                "@schemaLocation": {
+                    "type": "string", 
+                    "description": "Generic attribute containing the link to the schema that defines the structure of the class type of the current object."
+                }, 
+                "@type": {
+                    "type": "string", 
+                    "description": "Generic attribute containing the name of the resource class type"
+                }, 
                 "creditLimit": {
                     "$ref": "#/definitions/Money", 
                     "description": "The maximum amount of money that may be charged on an account"
@@ -3624,18 +3586,6 @@
                     "items": {
                         "$ref": "#/definitions/AccountRelationship"
                     }
-                }, 
-                "@type": {
-                    "type": "string", 
-                    "description": "The class type of the actual resource (for type extension)."
-                }, 
-                "@schemaLocation": {
-                    "type": "string", 
-                    "description": "A link to the schema describing a resource (for type extension)."
-                }, 
-                "@baseType": {
-                    "type": "string", 
-                    "description": "The base type for use in polymorphic collections"
                 }, 
                 "@referredType": {
                     "type": "string", 
@@ -3655,6 +3605,18 @@
                     "type": "string", 
                     "description": "The condition of the account, such as due, paid, in arrears."
                 }, 
+                "@baseType": {
+                    "type": "string", 
+                    "description": "Generic attribute indicating the base class type of the extension class of the current object. Useful only when the class type of the current  object is unknown to the implementation."
+                }, 
+                "@schemaLocation": {
+                    "type": "string", 
+                    "description": "Generic attribute containing the link to the schema that defines the structure of the class type of the current object."
+                }, 
+                "@type": {
+                    "type": "string", 
+                    "description": "Generic attribute containing the name of the resource class type"
+                }, 
                 "creditLimit": {
                     "$ref": "#/definitions/Money", 
                     "description": "The maximum amount of money that may be charged on an account"
@@ -3732,18 +3694,6 @@
                     "items": {
                         "$ref": "#/definitions/AccountRelationship"
                     }
-                }, 
-                "@type": {
-                    "type": "string", 
-                    "description": "The class type of the actual resource (for type extension)."
-                }, 
-                "@schemaLocation": {
-                    "type": "string", 
-                    "description": "A link to the schema describing a resource (for type extension)."
-                }, 
-                "@baseType": {
-                    "type": "string", 
-                    "description": "The base type for use in polymorphic collections"
                 }, 
                 "@referredType": {
                     "type": "string", 
@@ -3763,6 +3713,18 @@
                     "type": "string", 
                     "description": "The condition of the account, such as due, paid, in arrears."
                 }, 
+                "@baseType": {
+                    "type": "string", 
+                    "description": "Generic attribute indicating the base class type of the extension class of the current object. Useful only when the class type of the current  object is unknown to the implementation."
+                }, 
+                "@schemaLocation": {
+                    "type": "string", 
+                    "description": "Generic attribute containing the link to the schema that defines the structure of the class type of the current object."
+                }, 
+                "@type": {
+                    "type": "string", 
+                    "description": "Generic attribute containing the name of the resource class type"
+                }, 
                 "creditLimit": {
                     "$ref": "#/definitions/Money", 
                     "description": "The maximum amount of money that may be charged on an account"
@@ -3833,18 +3795,6 @@
                         "$ref": "#/definitions/AccountRelationship"
                     }
                 }, 
-                "@type": {
-                    "type": "string", 
-                    "description": "The class type of the actual resource (for type extension)."
-                }, 
-                "@schemaLocation": {
-                    "type": "string", 
-                    "description": "A link to the schema describing a resource (for type extension)."
-                }, 
-                "@baseType": {
-                    "type": "string", 
-                    "description": "The base type for use in polymorphic collections"
-                }, 
                 "@referredType": {
                     "type": "string", 
                     "description": "The actual type of the target instance when needed for disambiguation."
@@ -3858,6 +3808,18 @@
                 "paymentStatus": {
                     "type": "string", 
                     "description": "The condition of the account, such as due, paid, in arrears."
+                }, 
+                "@baseType": {
+                    "type": "string", 
+                    "description": "Generic attribute indicating the base class type of the extension class of the current object. Useful only when the class type of the current  object is unknown to the implementation."
+                }, 
+                "@schemaLocation": {
+                    "type": "string", 
+                    "description": "Generic attribute containing the link to the schema that defines the structure of the class type of the current object."
+                }, 
+                "@type": {
+                    "type": "string", 
+                    "description": "Generic attribute containing the name of the resource class type"
                 }, 
                 "creditLimit": {
                     "$ref": "#/definitions/Money", 
@@ -3923,18 +3885,6 @@
                         "$ref": "#/definitions/AccountRelationship"
                     }
                 }, 
-                "@type": {
-                    "type": "string", 
-                    "description": "The class type of the actual resource (for type extension)."
-                }, 
-                "@schemaLocation": {
-                    "type": "string", 
-                    "description": "A link to the schema describing a resource (for type extension)."
-                }, 
-                "@baseType": {
-                    "type": "string", 
-                    "description": "The base type for use in polymorphic collections"
-                }, 
                 "@referredType": {
                     "type": "string", 
                     "description": "The actual type of the target instance when needed for disambiguation."
@@ -3952,6 +3902,18 @@
                 "paymentStatus": {
                     "type": "string", 
                     "description": "The condition of the account, such as due, paid, in arrears."
+                }, 
+                "@baseType": {
+                    "type": "string", 
+                    "description": "Generic attribute indicating the base class type of the extension class of the current object. Useful only when the class type of the current  object is unknown to the implementation."
+                }, 
+                "@schemaLocation": {
+                    "type": "string", 
+                    "description": "Generic attribute containing the link to the schema that defines the structure of the class type of the current object."
+                }, 
+                "@type": {
+                    "type": "string", 
+                    "description": "Generic attribute containing the name of the resource class type"
                 }, 
                 "creditLimit": {
                     "$ref": "#/definitions/Money", 
@@ -4031,18 +3993,6 @@
                         "$ref": "#/definitions/AccountRelationship"
                     }
                 }, 
-                "@type": {
-                    "type": "string", 
-                    "description": "The class type of the actual resource (for type extension)."
-                }, 
-                "@schemaLocation": {
-                    "type": "string", 
-                    "description": "A link to the schema describing a resource (for type extension)."
-                }, 
-                "@baseType": {
-                    "type": "string", 
-                    "description": "The base type for use in polymorphic collections"
-                }, 
                 "@referredType": {
                     "type": "string", 
                     "description": "The actual type of the target instance when needed for disambiguation."
@@ -4060,6 +4010,18 @@
                 "paymentStatus": {
                     "type": "string", 
                     "description": "The condition of the account, such as due, paid, in arrears."
+                }, 
+                "@baseType": {
+                    "type": "string", 
+                    "description": "Generic attribute indicating the base class type of the extension class of the current object. Useful only when the class type of the current  object is unknown to the implementation."
+                }, 
+                "@schemaLocation": {
+                    "type": "string", 
+                    "description": "Generic attribute containing the link to the schema that defines the structure of the class type of the current object."
+                }, 
+                "@type": {
+                    "type": "string", 
+                    "description": "Generic attribute containing the name of the resource class type"
                 }, 
                 "creditLimit": {
                     "$ref": "#/definitions/Money", 
@@ -4131,18 +4093,6 @@
                         "$ref": "#/definitions/AccountRelationship"
                     }
                 }, 
-                "@type": {
-                    "type": "string", 
-                    "description": "The class type of the actual resource (for type extension)."
-                }, 
-                "@schemaLocation": {
-                    "type": "string", 
-                    "description": "A link to the schema describing a resource (for type extension)."
-                }, 
-                "@baseType": {
-                    "type": "string", 
-                    "description": "The base type for use in polymorphic collections"
-                }, 
                 "@referredType": {
                     "type": "string", 
                     "description": "The actual type of the target instance when needed for disambiguation."
@@ -4156,6 +4106,18 @@
                 "paymentStatus": {
                     "type": "string", 
                     "description": "The condition of the account, such as due, paid, in arrears."
+                }, 
+                "@baseType": {
+                    "type": "string", 
+                    "description": "Generic attribute indicating the base class type of the extension class of the current object. Useful only when the class type of the current  object is unknown to the implementation."
+                }, 
+                "@schemaLocation": {
+                    "type": "string", 
+                    "description": "Generic attribute containing the link to the schema that defines the structure of the class type of the current object."
+                }, 
+                "@type": {
+                    "type": "string", 
+                    "description": "Generic attribute containing the name of the resource class type"
                 }, 
                 "creditLimit": {
                     "$ref": "#/definitions/Money", 
@@ -4220,18 +4182,6 @@
                     "items": {
                         "$ref": "#/definitions/AccountRelationship"
                     }
-                }, 
-                "@type": {
-                    "type": "string", 
-                    "description": "The class type of the actual resource (for type extension)."
-                }, 
-                "@schemaLocation": {
-                    "type": "string", 
-                    "description": "A link to the schema describing a resource (for type extension)."
-                }, 
-                "@baseType": {
-                    "type": "string", 
-                    "description": "The base type for use in polymorphic collections"
                 }, 
                 "@referredType": {
                     "type": "string", 
@@ -4262,6 +4212,10 @@
                 "name"
             ], 
             "properties": {
+                "@referredType": {
+                    "type": "string", 
+                    "description": "Generic attribute indicating the name of the class type of the referred resource entity."
+                }, 
                 "href": {
                     "type": "string", 
                     "description": "Reference of the related party, could be a party reference or a party role reference"
@@ -4277,10 +4231,6 @@
                 "role": {
                     "type": "string", 
                     "description": "Role of the related party."
-                }, 
-                "@referredType": {
-                    "type": "string", 
-                    "description": "The actual type of the target instance when needed for disambiguation."
                 }
             }
         }, 
@@ -4292,6 +4242,18 @@
                 "validFor"
             ], 
             "properties": {
+                "@baseType": {
+                    "type": "string", 
+                    "description": "Generic attribute indicating the base class type of the extension class of the current object. Useful only when the class type of the current  object is unknown to the implementation."
+                }, 
+                "@schemaLocation": {
+                    "type": "string", 
+                    "description": "Generic attribute containing the link to the schema that defines the structure of the class type of the current object."
+                }, 
+                "@type": {
+                    "type": "string", 
+                    "description": "Generic attribute containing the name of the resource class type"
+                }, 
                 "certificateNumber": {
                     "type": "string", 
                     "description": "Identifier of a document that shows proof of exemption from taxes for the taxing jurisdiction"
@@ -4307,10 +4269,6 @@
                 "validFor": {
                     "$ref": "#/definitions/TimePeriod", 
                     "description": "Period for which the exemption is valid"
-                }, 
-                "@type": {
-                    "type": "string", 
-                    "description": "The class type of the actual resource (for type extension)."
                 }
             }
         }, 
@@ -4322,6 +4280,18 @@
                 "validFor"
             ], 
             "properties": {
+                "@baseType": {
+                    "type": "string", 
+                    "description": "Generic attribute indicating the base class type of the extension class of the current object. Useful only when the class type of the current  object is unknown to the implementation."
+                }, 
+                "@schemaLocation": {
+                    "type": "string", 
+                    "description": "Generic attribute containing the link to the schema that defines the structure of the class type of the current object."
+                }, 
+                "@type": {
+                    "type": "string", 
+                    "description": "Generic attribute containing the name of the resource class type"
+                }, 
                 "contactName": {
                     "type": "string", 
                     "description": "A displayable name for that contact"
@@ -4346,10 +4316,6 @@
                 }, 
                 "relatedParty": {
                     "$ref": "#/definitions/RelatedPartyRef"
-                }, 
-                "@type": {
-                    "type": "string", 
-                    "description": "The class type of the actual resource (for type extension)."
                 }
             }
         }, 
@@ -4362,6 +4328,18 @@
                 "validFor"
             ], 
             "properties": {
+                "@baseType": {
+                    "type": "string", 
+                    "description": "Generic attribute indicating the base class type of the extension class of the current object. Useful only when the class type of the current  object is unknown to the implementation."
+                }, 
+                "@schemaLocation": {
+                    "type": "string", 
+                    "description": "Generic attribute containing the link to the schema that defines the structure of the class type of the current object."
+                }, 
+                "@type": {
+                    "type": "string", 
+                    "description": "Generic attribute containing the name of the resource class type"
+                }, 
                 "amount": {
                     "$ref": "#/definitions/Money", 
                     "description": "Balance amount"
@@ -4373,10 +4351,6 @@
                 "validFor": {
                     "$ref": "#/definitions/TimePeriod", 
                     "description": "Balance validity period"
-                }, 
-                "@type": {
-                    "type": "string", 
-                    "description": "The class type of the actual resource (for type extension)."
                 }
             }
         }, 
@@ -4425,6 +4399,18 @@
             "type": "object", 
             "description": "Indicates the contact medium that could be used to contact the party.", 
             "properties": {
+                "@baseType": {
+                    "type": "string", 
+                    "description": "Generic attribute indicating the base class type of the extension class of the current object. Useful only when the class type of the current  object is unknown to the implementation."
+                }, 
+                "@schemaLocation": {
+                    "type": "string", 
+                    "description": "Generic attribute containing the link to the schema that defines the structure of the class type of the current object."
+                }, 
+                "@type": {
+                    "type": "string", 
+                    "description": "Generic attribute containing the name of the resource class type"
+                }, 
                 "preferred": {
                     "type": "boolean", 
                     "description": "If true, indicates that is the preferred contact medium"
@@ -4439,10 +4425,6 @@
                 }, 
                 "characteristic": {
                     "$ref": "#/definitions/MediumCharacteristic"
-                }, 
-                "@type": {
-                    "type": "string", 
-                    "description": "The class type of the actual resource (for type extension)."
                 }
             }
         }, 
@@ -4504,6 +4486,10 @@
             "type": "object", 
             "description": "Account reference. A account may be a party account or a financial account.", 
             "properties": {
+                "@referredType": {
+                    "type": "string", 
+                    "description": "Generic attribute indicating the name of the class type of the referred resource entity."
+                }, 
                 "description": {
                     "type": "string", 
                     "description": "Detailed description of the account"
@@ -4519,10 +4505,6 @@
                 "name": {
                     "type": "string", 
                     "description": "Name of the account"
-                }, 
-                "@referredType": {
-                    "type": "string", 
-                    "description": "The actual type of the target instance when needed for disambiguation."
                 }
             }
         }, 
@@ -4530,6 +4512,18 @@
             "type": "object", 
             "description": "The structure of the bill for party accounts (billling or settlement).", 
             "properties": {
+                "@baseType": {
+                    "type": "string", 
+                    "description": "Generic attribute indicating the base class type of the extension class of the current object. Useful only when the class type of the current  object is unknown to the implementation."
+                }, 
+                "@schemaLocation": {
+                    "type": "string", 
+                    "description": "Generic attribute containing the link to the schema that defines the structure of the class type of the current object."
+                }, 
+                "@type": {
+                    "type": "string", 
+                    "description": "Generic attribute containing the name of the resource class type"
+                }, 
                 "presentationMedia": {
                     "type": "array", 
                     "items": {
@@ -4541,10 +4535,6 @@
                 }, 
                 "cycleSpecification": {
                     "$ref": "#/definitions/BillingCycleSpecificationRef"
-                }, 
-                "@type": {
-                    "type": "string", 
-                    "description": "The class type of the actual resource (for type extension)."
                 }
             }
         }, 
@@ -4552,6 +4542,18 @@
             "type": "object", 
             "description": "Defines a plan for payment (when a party wants to spread his payments)", 
             "properties": {
+                "@baseType": {
+                    "type": "string", 
+                    "description": "Generic attribute indicating the base class type of the extension class of the current object. Useful only when the class type of the current  object is unknown to the implementation."
+                }, 
+                "@schemaLocation": {
+                    "type": "string", 
+                    "description": "Generic attribute containing the link to the schema that defines the structure of the class type of the current object."
+                }, 
+                "@type": {
+                    "type": "string", 
+                    "description": "Generic attribute containing the name of the resource class type"
+                }, 
                 "numberOfPayments": {
                     "type": "integer", 
                     "description": "Number of payments used to spread the global payment"
@@ -4582,10 +4584,6 @@
                 }, 
                 "paymentMethod": {
                     "$ref": "#/definitions/PaymentMethodRef"
-                }, 
-                "@type": {
-                    "type": "string", 
-                    "description": "The class type of the actual resource (for type extension)."
                 }
             }
         }, 
@@ -4593,6 +4591,10 @@
             "type": "object", 
             "description": "AccountReceivable reference. An account of money owed by a party to another entity in exchange for goods or services that have been delivered or used. An account receivable aggregates the amounts of one or more party accounts (billing or settlement) owned by a given party.", 
             "properties": {
+                "@referredType": {
+                    "type": "string", 
+                    "description": "Generic attribute indicating the name of the class type of the referred resource entity."
+                }, 
                 "href": {
                     "type": "string", 
                     "description": "Unique reference of the account"
@@ -4607,10 +4609,6 @@
                 }, 
                 "accountBalance": {
                     "$ref": "#/definitions/AccountBalance"
-                }, 
-                "@referredType": {
-                    "type": "string", 
-                    "description": "The actual type of the target instance when needed for disambiguation."
                 }
             }
         }, 
@@ -4618,6 +4616,10 @@
             "type": "object", 
             "description": "PaymentMethod reference. A payment method defines a specific mean of payment (e.g direct debit).", 
             "properties": {
+                "@referredType": {
+                    "type": "string", 
+                    "description": "Generic attribute indicating the name of the class type of the referred resource entity."
+                }, 
                 "href": {
                     "type": "string", 
                     "description": "Reference of the payment mean"
@@ -4629,10 +4631,6 @@
                 "name": {
                     "type": "string", 
                     "description": "Name of the payment mean"
-                }, 
-                "@referredType": {
-                    "type": "string", 
-                    "description": "The actual type of the target instance when needed for disambiguation."
                 }
             }
         }, 
@@ -4640,6 +4638,10 @@
             "type": "object", 
             "description": "PresentationMedia reference. A mean of communicating a bill, supported by the associated bill format. For example, post mail, email, web page.", 
             "properties": {
+                "@referredType": {
+                    "type": "string", 
+                    "description": "Generic attribute indicating the name of the class type of the referred resource entity."
+                }, 
                 "href": {
                     "type": "string", 
                     "description": "Reference of the bill presentation media"
@@ -4651,10 +4653,6 @@
                 "name": {
                     "type": "string", 
                     "description": "A short descriptive name"
-                }, 
-                "@referredType": {
-                    "type": "string", 
-                    "description": "The actual type of the target instance when needed for disambiguation."
                 }
             }
         }, 
@@ -4662,6 +4660,10 @@
             "type": "object", 
             "description": "BillFormat reference. A bill format is a description of the way in which a bill is presented.", 
             "properties": {
+                "@referredType": {
+                    "type": "string", 
+                    "description": "Generic attribute indicating the name of the class type of the referred resource entity."
+                }, 
                 "href": {
                     "type": "string", 
                     "description": "Reference of the bill format"
@@ -4673,10 +4675,6 @@
                 "name": {
                     "type": "string", 
                     "description": "A short descriptive name"
-                }, 
-                "@referredType": {
-                    "type": "string", 
-                    "description": "The actual type of the target instance when needed for disambiguation."
                 }
             }
         }, 
@@ -4684,6 +4682,10 @@
             "type": "object", 
             "description": "BillingCycleSpecification reference. A description of when to initiate a billing cycle and the various sub steps of a billing cycle.", 
             "properties": {
+                "@referredType": {
+                    "type": "string", 
+                    "description": "Generic attribute indicating the name of the class type of the referred resource entity."
+                }, 
                 "dateShift": {
                     "type": "integer", 
                     "description": "An offset of a billing/settlement date. The offset is expressed as number of days with regard to the start of the billing/settlement period."
@@ -4703,10 +4705,6 @@
                 "name": {
                     "type": "string", 
                     "description": "A short descriptive name"
-                }, 
-                "@referredType": {
-                    "type": "string", 
-                    "description": "The actual type of the target instance when needed for disambiguation."
                 }
             }
         }, 
