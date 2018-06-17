@@ -2765,10 +2765,6 @@
                     "items": {
                         "$ref": "#/definitions/AccountRelationship"
                     }
-                }, 
-                "@referredType": {
-                    "type": "string", 
-                    "description": "The actual type of the target instance when needed for disambiguation."
                 }
             }
         }, 
@@ -2845,10 +2841,6 @@
                     "items": {
                         "$ref": "#/definitions/AccountRelationship"
                     }
-                }, 
-                "@referredType": {
-                    "type": "string", 
-                    "description": "The actual type of the target instance when needed for disambiguation."
                 }
             }
         }, 
@@ -2917,10 +2909,6 @@
                     "items": {
                         "$ref": "#/definitions/AccountRelationship"
                     }
-                }, 
-                "@referredType": {
-                    "type": "string", 
-                    "description": "The actual type of the target instance when needed for disambiguation."
                 }
             }
         }, 
@@ -3396,10 +3384,6 @@
                     "items": {
                         "$ref": "#/definitions/AccountRelationship"
                     }
-                }, 
-                "@referredType": {
-                    "type": "string", 
-                    "description": "The actual type of the target instance when needed for disambiguation."
                 }
             }
         }, 
@@ -3496,10 +3480,6 @@
                     "items": {
                         "$ref": "#/definitions/AccountRelationship"
                     }
-                }, 
-                "@referredType": {
-                    "type": "string", 
-                    "description": "The actual type of the target instance when needed for disambiguation."
                 }
             }
         }, 
@@ -3586,10 +3566,6 @@
                     "items": {
                         "$ref": "#/definitions/AccountRelationship"
                     }
-                }, 
-                "@referredType": {
-                    "type": "string", 
-                    "description": "The actual type of the target instance when needed for disambiguation."
                 }
             }
         }, 
@@ -3694,10 +3670,6 @@
                     "items": {
                         "$ref": "#/definitions/AccountRelationship"
                     }
-                }, 
-                "@referredType": {
-                    "type": "string", 
-                    "description": "The actual type of the target instance when needed for disambiguation."
                 }
             }
         }, 
@@ -3794,10 +3766,6 @@
                     "items": {
                         "$ref": "#/definitions/AccountRelationship"
                     }
-                }, 
-                "@referredType": {
-                    "type": "string", 
-                    "description": "The actual type of the target instance when needed for disambiguation."
                 }
             }
         }, 
@@ -3884,10 +3852,6 @@
                     "items": {
                         "$ref": "#/definitions/AccountRelationship"
                     }
-                }, 
-                "@referredType": {
-                    "type": "string", 
-                    "description": "The actual type of the target instance when needed for disambiguation."
                 }
             }
         }, 
@@ -3992,10 +3956,6 @@
                     "items": {
                         "$ref": "#/definitions/AccountRelationship"
                     }
-                }, 
-                "@referredType": {
-                    "type": "string", 
-                    "description": "The actual type of the target instance when needed for disambiguation."
                 }
             }
         }, 
@@ -4092,10 +4052,6 @@
                     "items": {
                         "$ref": "#/definitions/AccountRelationship"
                     }
-                }, 
-                "@referredType": {
-                    "type": "string", 
-                    "description": "The actual type of the target instance when needed for disambiguation."
                 }
             }
         }, 
@@ -4182,10 +4138,6 @@
                     "items": {
                         "$ref": "#/definitions/AccountRelationship"
                     }
-                }, 
-                "@referredType": {
-                    "type": "string", 
-                    "description": "The actual type of the target instance when needed for disambiguation."
                 }
             }
         }, 
@@ -4372,10 +4324,6 @@
                 }, 
                 "account": {
                     "$ref": "#/definitions/AccountRef"
-                }, 
-                "@type": {
-                    "type": "string", 
-                    "description": "The class type of the actual resource (for type extension)."
                 }
             }
         }, 
@@ -4471,14 +4419,6 @@
                 "type": {
                     "type": "string", 
                     "description": "Type of medium (fax, mobile phone...)"
-                }, 
-                "@type": {
-                    "type": "string", 
-                    "description": "The class type of the actual resource (for type extension)."
-                }, 
-                "@schemaLocation": {
-                    "type": "string", 
-                    "description": "A link to the schema describing a resource (for type extension)."
                 }
             }
         }, 
