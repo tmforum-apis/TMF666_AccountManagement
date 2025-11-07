@@ -1,10 +1,8 @@
-# TMF666_AccountManagement
-TM Forum Open APIs (Apache 2.0) Account Management API
+# TMF666 AccountManagement
 
-Provides standardized mechanism for the management of billing and settlement accounts,
+TM Forum Open API (Apache 2.0) AccountManagement API.
+
 as well as for financial accounting (account receivable) either in B2B or B2B2C contexts
 
-To access this API; (the Specification, Postman Collection, Swagger file, Swagger-UI, 
-Reference Implementation, Conformance Profile, and CTK) go to the Open API table at:
-
-https://projects.tmforum.org/wiki/display/API/Open+API+Table
+The resources in this repository are a mirror of the official versions, published here for your convenience.
+The authoritative source of information for this API is: https://www.tmforum.org/oda/open-apis/directory/
